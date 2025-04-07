@@ -1,0 +1,344 @@
+[
+    {
+        "type": "text",
+        "text": "This technical function provides for the exchange of information required to establish and maintain an interface via Link 16.  This information shall be exchanged via messages that enable network synchronization, timing, dynamic capacity assignments and reassignments, network control, cryptovariable management, designation of relays, reassignment of relays and Net Control Stations (NCSs), and other actions required to ensure interoperability of the interfacing tactical data systems (TDSs). ",
+        "page_idx": 144,
+        "index": 859
+    },
+    {
+        "type": "text",
+        "text": "b.  Air and Surface (Maritime) surveillance data included in the J3.2 Air Track message and the J3.3 Surface (Maritime) Track message. ",
+        "page_idx": 238,
+        "index": 1445
+    },
+    {
+        "type": "text",
+        "text": "a.  J7.0 Track Management ( ${\\bf\\chi}_{\\mathrm{ACT}}^{\\prime}=0$ ) Drop Track Report message. b.  J7.0 Track Management ( $\\mathbf{\\chiACT}=\\mathbf{\\chi1}$ ) Difference Report message. c.  J7.0 Track Management ( $\\prime\\mathrm{ACT}=2$ ) Change Data Order message. d.  J7.0 Track Management ( ${\\mathrm{\\'~ACT~}}=3\\mathrm{\\'~}$ ) Emergency Status Change message. e.  J7.0 Track Management ( ${\\mathrm{\\acute{ACT}}}=4{\\mathrm{\\acute{\\Psi}}} $ ) Force Tell Status Change message. f.  J7.0 Track Management ( $\\prime\\mathrm{{ACT}=5}$ ) Strength Change message. g.  J7.0 Track Management ( $\\prime\\mathrm{{ACT}=6)}$ Exercise Status Order message. h.  J7.1 Data Update Request ( $\\begin{array}{r l r}{\\mathbb{A}\\mathrm{CT}}&{{}=}&{0}\\end{array}$ ) Data Update Request by Request   \nIndicator message. i.  J7.1 Data Update Request ( $\\begin{array}{r l r}{\\mathbb{A}\\mathrm{CT}}&{{}=}&{1}\\end{array}$ ) Data Update Request by Track   \nNumber message. j.  J7.1 Data Update Request ( $\\mathbf{\\nabla}{\\mathbb{A}}{\\mathbb{C}}{\\mathbb{T}}\\mathbf{\\nabla}=2$ ) Ballistic Missile Update Request   \nmessage. k.  J7.2 Correlation message. l.  J7.4 Track Identifier message. m.  J7.5 IFF/SIF Management ( $\\begin{array}{r l r}{\\mathbb{A}\\mathrm{CT}}&{{}=}&{0}\\end{array}$ ) Clear IFF/SIF message. ",
+        "page_idx": 239,
+        "index": 1454
+    },
+    {
+        "type": "text",
+        "text": "Specific type is Environment/Category dependent and serves to further amplify platforms in each Environment/Category.  Specific type is normally provided by status report from interface units or by intelligence amplification reports on surveillance tracks, or in the J3.2, J3.3, J3.4, J3.5, and J3.6 messages. ",
+        "page_idx": 243,
+        "index": 1485
+    },
+    {
+        "type": "text",
+        "text": "The originator of a J3.0 or J3.5 ( $\\bar{\\mathrm{~\\tiny~PTI~}}=0$ ) point, line, or area retains $\\mathtt{R}^{2}$ as long as the originator remains active and reports the point, line, or area. However, if a J7.0 ( $\\begin{array}{r l r}{\\mathbb{A}\\mathrm{CT}}&{{}=}&{0}\\end{array}$ ) message is received, the $\\mathtt{R}^{2}$ unit is declared inactive, or if no periodic update is received for three consecutive update intervals, another JU may, by operator action only, assume $\\mathtt{R}^{2}$ for the point, line, or area using the same Reference TN(s).  The latest IU to report on a reference or land (ground) point, line, or area has $\\mathsf{R}^{2}$ for the point, line, or area.  If a JU without $\\mathsf{R}^{2}$ desires that a specific point, line, or area be transmitted immediately without awaiting the next periodic update, it should transmit a J7.1 ( $\\begin{array}{r l r}{\\mathbb{A}\\mathrm{CT}}&{{}=}&{1}\\end{array}$ ) Data Update Request for the desired TN. ",
+        "page_idx": 256,
+        "index": 1589
+    },
+    {
+        "type": "text",
+        "text": "The specific messages used to report Air, Surface (Maritime), and Land (Ground) surveillance data are the J3.2, J3.3, and J3.5 ( $\\begin{array}{r l r}{\\mathrm{PTI}}&{{}=}&{1}\\end{array}$ ) messages, respectively.  These messages are monitored by nonC2 JUs, such as fighter aircraft, for situational awareness and early warning information. ",
+        "page_idx": 260,
+        "index": 1619
+    },
+    {
+        "type": "text",
+        "text": "Procedures for reporting J3.2, J3.3, and J3.5 ( $\\begin{array}{r l r}{\\mathrm{PTI}}&{{}=}&{1}\\end{array}$ ) messages are provided in the following paragraphs.  Section 5 provides the detailed message transmission rules. ",
+        "page_idx": 261,
+        "index": 1633
+    },
+    {
+        "type": "text",
+        "text": "(a)  Upon receipt of each remote real-time J3.2 or J3.3 track or J2.0 (Originator $\\mathrm{~\\textsf~{~E~}~}/\\mathrm{{C~}~}=\\mathrm{~0~}$ or 3), J2.2, or J2.3 PPLI report which is not confirmed to have an existing correlation to a local track. Such tests shall compare the received remote track or IU to local tracks of the same E/C, including previously common local tracks for which own unit has $\\mathtt{R}^{2}$ . ",
+        "page_idx": 263,
+        "index": 1643
+    },
+    {
+        "type": "text",
+        "text": "(c)  When the remote report being tested for correlation is a J2.0 Indirect PPLI message with the Originator E/C field set to value 0 (Surface) or 3 (Air), it shall be processed for correlation like a J3.2 air or J3.3 surface (maritime) track with $\\mathrm{\\mathbb{T}Q~}=~7\\$ . ",
+        "page_idx": 271,
+        "index": 1698
+    },
+    {
+        "type": "text",
+        "text": "(1)  The local track shall be automatically tested once for correlation against remote tracks (not common local tracks) in accordance with paragraphs 4.4.4.3.1f and g.  If the automatic correlation test fails, assign a new TN (TN B) to the local track and report TN B in a J3.2 or J3.3 message, with an initial ID of Pending.  For manual decorrelation the Pending ID may be overridden by operator action. ",
+        "page_idx": 276,
+        "index": 1746
+    },
+    {
+        "type": "text",
+        "text": "The reporting of IFF/SIF surveillance data in the J3.2C1 and J3.3C1 words for Air and Surface tracks, respectively, is the responsibility of the JU with $\\mathtt{R}^{2}$ while all other JUs without $\\mathsf{R}^{2}$ are responsible for monitoring such data and only reporting if they hold different data with the J7.5 message.  In this way the JU with $\\mathsf{R}^{2}$ can be assumed to be reporting the most current data available in the interface.  Surveillance reporting rules are as follows: ",
+        "page_idx": 284,
+        "index": 1790
+    },
+    {
+        "type": "text",
+        "text": "a.  Track Quality is a measure of the reliability of the positional information of a reported Air, Surface (Maritime), or Land (Ground) track determined by the unit transmitting the track.  It is a numerical value of 0 through 15 which is included in the J3.2, J3.3, and J3.5 ( $\\begin{array}{r l r}{\\mathrm{PTI}}&{{}=}&{1}\\end{array}$ ) messages. A value of 0 indicates a nonreal-time report and the values 1 through 15 indicate different degrees of reliability of the positional data, with 15 being the most reliable. ",
+        "page_idx": 285,
+        "index": 1797
+    },
+    {
+        "type": "text",
+        "text": "e.  If reported, friendly interceptor missile tracks shall be reported on the interface using the J3.2 Air Track message for missiles capable only of endoatmospheric intercepts, and the J3.6 Space Track message for ",
+        "page_idx": 301,
+        "index": 1945
+    },
+    {
+        "type": "text",
+        "text": "interceptors capable of exoatmospheric intercepts.  When reporting an interceptor missile in the J3.2 message, Platform and Platform Activity shall be reported. ",
+        "page_idx": 302,
+        "index": 1946
+    },
+    {
+        "type": "text",
+        "text": "a.  The J3.0 Reference Point message is used to report the actual or expected Launch Point of a ballistic missile.  The Launch Point will normally be derived via back azimuth from a missile track or by sensor detection of a launch.  The time of the launch is reported to the nearest second with the Time Function field set to value 4, Departure Time.  An early warning indication of an expected launch shall be reported by setting the Time Function field to Departure Time and setting the Hour, Minute, and Second fields to either No Statement or to the expected time of launch.  If a missile launch point is related to a specific ballistic missile track it shall be identified in the J3.0C5 Related 2 Track Number field.  If the actual launcher is detected by sensors, a J3.2, J3.3, J3.4, or J3.5 message shall be transmitted.  If the actual launcher is associated with a launch point, it shall be associated using the J7.7 Association message. ",
+        "page_idx": 302,
+        "index": 1951
+    },
+    {
+        "type": "text",
+        "text": "The error estimate information of the ballistic missile track, the covariance information, is contained in the J3.6 continuation words.  The covariance information can be passed as either full or partial covariance.  Full covariance requires the transmitter to perform an encoding process of the full covariance matrix P into the J3.6C1, J3.6C2, J3.6C3, and J3.6C4 words. Partial covariance requires the transmitter to perform two separate encoding processes:  (1) The spatial covariance information is encoded into the J3.6C1 word; (2) the velocity information is separately encoded into the J3.6C5 word. ",
+        "page_idx": 306,
+        "index": 1975
+    },
+    {
+        "type": "text",
+        "text": "4.4.6.9.6 CONSTRUCTION OF A CORRELATION MATRIX FROM THE INFORMATION CONTAINED IN THE J3.6C1, J3.6C2, J3.6C3, AND J3.6C4 ",
+        "page_idx": 310,
+        "index": 2014
+    },
+    {
+        "type": "text",
+        "text": "J3.6C1 through J3.6C4 contain the encoded values of rows 2 through 6 of U, and the signs of elements 2 through 6 of the first row of U.  This information is sufficient to reconstruct U.  Once U is determined, the correlation matrix can be reconstructed using this equation. ",
+        "page_idx": 311,
+        "index": 2017
+    },
+    {
+        "type": "text",
+        "text": "4.4.6.9.12  CONSTRUCTION OF THE SPATIAL AND VELOCITY CORRELATION SUBMATRICES FROM THE INFORMATION CONTAINED IN THE J3.6C1 AND J3.6C5 ",
+        "page_idx": 314,
+        "index": 2051
+    },
+    {
+        "type": "text",
+        "text": "J3.6C1 contains the encoded values of rows 2 and 3 of the Cholesky factor $\\mathrm{{U_{x}}}$ of the precompensated spatial correlation $\\mathrm{C}_{\\mathrm{x}}.$ , and the signs of elements 2 and 3 of the first row of $\\mathrm{U_{x}}$ .  ( $\\mathrm{U_{x}}$ is the same as the upper left $3\\times3$ submatrix of U.)  This information is sufficient to reconstruct $\\mathrm{U_{x}}$ . ",
+        "page_idx": 314,
+        "index": 2052
+    },
+    {
+        "type": "text",
+        "text": "J3.6C5 contains the encoded values of rows 2 and 3 of the Cholesky factor $\\mathrm{{U_{v}}}$ of the precompensated velocity correlation submatrix $C_{\\mathrm{v}}$ , and the signs of elements 2 and 3 of the first row of $\\mathrm{U_{v}}$ .  This information is sufficient to reconstruct $\\mathrm{U_{v}}$ . ",
+        "page_idx": 314,
+        "index": 2053
+    },
+    {
+        "type": "text",
+        "text": "Upon receipt of a J7.1 ( $\\mathbf{\\nabla}_{\\mathbb{A}\\mathbb{C}\\mathbb{T}}~=~1$ ) message or upon receipt of a J7.1 ( $\\begin{array}{r l r}{\\mathbb{A}\\mathrm{CT}}&{{}=}&{0}\\end{array}$ ) message with an EA, ES, or EW Fixes Data Request Indicator set, addressed JUs shall respond as follows (see also paragraph 4.7.2.1.5 and Table 4.7-4): ",
+        "page_idx": 323,
+        "index": 2132
+    },
+    {
+        "type": "text",
+        "text": "a.  If the J7.1 Addressee TN is set to value 00177, JUs with $\\mathsf{R}^{2}$ transmit all J3.7 EW data on the TN or as specified by the Request Indicator set to value 1. ",
+        "page_idx": 323,
+        "index": 2133
+    },
+    {
+        "type": "text",
+        "text": "b.  If the J7.1 Addressee TN is set to own JU, transmit all J3.7 EW data on the TN or as specified by the Request Indicators, with the J3.7 Response Indicator set to value 1. ",
+        "page_idx": 323,
+        "index": 2134
+    },
+    {
+        "type": "text",
+        "text": "The J14.2 message with EW Action Value set to value 7 provides an initial evaluation or an alteration to the present emitter evaluation, Mode Number, and/or Emitter Confidence of the Reference TN.  If the Electronic Warfare Coordinator Indicator (EWC IND) is set to value 1, the evaluation is as directed by the EWC; otherwise the evaluation is as recommended by a nonEWC unit.  The J14.2 message with EW Action Value set to value 7 shall be addressed to the collective address 00177 octal, except in response to a J14.2 (EWAC $=20$ ) message or a J7.1 message.  In either case, R/C shall be set to value 1. ",
+        "page_idx": 337,
+        "index": 2226
+    },
+    {
+        "type": "text",
+        "text": "The J14.2 message with EW Action Value set to value 8 reports that there is an association between Reference TN and Associated TN, which have similar parametric information, and the detected emissions are deemed to originate from the same emitter.  If the EWC IND is set to value 1, the association is directed by the EWC; otherwise, the association is recommended by a nonEWC unit.  The J14.2 message with EW Action Value set value to 8 shall be addressed to the collective address 00177 octal except in response to a J14.2 $\\ensuremath{\\langle\\mathrm{E}\\mathrm{w}\\mathrm{AC}=20}$ ) message or J7.1 message.  In either case, R/C shall be set to value 1. ",
+        "page_idx": 338,
+        "index": 2229
+    },
+    {
+        "type": "text",
+        "text": "The J14.2 message with EW Action Value set to value 9 reports that the EW information identified by Reference TN and Associated TN is deemed to be collocated, i.e., emanating from the same platform but not the same emitter. If the EWC IND is set to value 1, the association is directed by the EWC; otherwise, the association is recommended by a nonEWC unit.  The J14.2 message with EW Action Value set to value 9 shall be addressed to the collective address 00177 octal except in response to a J14.2 (EWAC $=20$ ) message or J7.1 message.  In either case, R/C shall be set to value 1. ",
+        "page_idx": 338,
+        "index": 2231
+    },
+    {
+        "type": "text",
+        "text": "When the J6.0 message is being retransmitted as a result of a J7.1 Data Update Request message, the Response Indicator field shall be set to 1. ",
+        "page_idx": 350,
+        "index": 2302
+    },
+    {
+        "type": "text",
+        "text": "a. J7.0  Track Management message.   \nb. J7.1  Data Update Request message.   \nc. J7.2  Correlation message.   \nd. J7.3 Pointer message.   \ne. J7.4 Track Identifier message.   \nf. J7.5 IFF/SIF Management message.   \ng. J7.6  Filter Management message.   \nh. J7.7 Association message.   \ni. J8.0 Unit Designator message.   \nj.  J8.1 Mission Correlator Change message.   \n4.7.1 TRACK MANAGEMENT ",
+        "page_idx": 354,
+        "index": 2323
+    },
+    {
+        "type": "text",
+        "text": "A JU with $\\mathsf{R}^{2}$ shall initiate an emergency or force tell alert on tracks by setting the appropriate EMG IND or FT IND in the J3.2 Air Track, J3.3 Surface (Maritime) Track, J3.4 Subsurface (Maritime) Track, or J3.5 Land (Ground) Point/Track message.  All receiving JUs shall accept the alert in their databases. ",
+        "page_idx": 369,
+        "index": 2424
+    },
+    {
+        "type": "text",
+        "text": "The JU with $\\mathtt{R}^{2}$ shall terminate an emergency or force tell alert by transmitting a J7.0 ( $\\mathrm{\\mathbb{A}C T}=3$ or 4) message terminating the alert and setting the appropriate EMG IND field or FT IND field in subsequent J3.2, J3.3, J3.4, or J3.5 messages to 0.  All receiving JUs shall terminate the alert in their databases upon receipt of the J7.0 ( $\\mathrm{{(ACT~=~3~or~4}~}$ ) message.  Optionally, alerts may be cleared by reception of a J3.X message with the EMG IND and/or FT IND set to value 0. ",
+        "page_idx": 369,
+        "index": 2425
+    },
+    {
+        "type": "text",
+        "text": "When another JU assumes $\\mathtt{R}^{2}$ for a track, it shall transmit the appropriate EMG IND or FT IND which was received in previous J3.2, J3.3, J3.4, or J3.5 messages. ",
+        "page_idx": 370,
+        "index": 2426
+    },
+    {
+        "type": "text",
+        "text": "A JU without $\\mathsf{R}^{2}$ shall initiate/terminate an emergency or force tell alert by setting/clearing the appropriate EMG IND or FT IND in a J7.0 ( $\\mathrm{\\mathbb{A}C T}=3$ or 4) message.  Upon receipt, the JU with $\\mathtt{R}^{2}$ shall set/clear the appropriate EMG IND or FT IND in the J3.2, J3.3, J3.4, or J3.5 message.  Other receiving JUs without $\\mathsf{R}^{2}$ shall set/clear the appropriate EMG IND or FT IND in their databases upon receipt of the J7.0 ( $\\mathrm{~\\'ACT~}=3\\mathrm{~or~}4\\mathrm{~}$ ) message.  Optionally, alerts may be cleared by reception of a J3.X message with the EMG IND or FT IND set to value 0. ",
+        "page_idx": 370,
+        "index": 2427
+    },
+    {
+        "type": "text",
+        "text": "The J7.1 message consists of the J7.1I Data Update Request initial word and J7.1C1 Data Update Request Additional Addresses continuation word and is used to request: ",
+        "page_idx": 373,
+        "index": 2455
+    },
+    {
+        "type": "text",
+        "text": "The J7.1 ( $\\mathbf{\\chi}^{\\prime}\\mathbb{A}\\mathbb{C}\\mathbb{T}\\mathbf{\\chi}=\\mathbf{\\chi}\\mathbb{1}$ ) Data Update Request by TN or ( $\\mathbf{\\nabla}{\\mathbb{A}}{\\mathbb{C}}{\\mathbb{T}}\\mathbf{\\nabla}=2$ ) Ballistic Missile Update Request message has the capability to request update information on a specific TN.  When used for this purpose, the requesting JU initiates the J7.1 $\\mathbf{\\chiACT}=\\mathbf{\\chi1}$ or 2) message with the specific TN in the Reference TN field and addressed to a specific Addressee TN(s) or to the collective address of 00177 octal.  The responding JU(s), whether a specific address or collective addressee, shall then reply as described below. ",
+        "page_idx": 373,
+        "index": 2460
+    },
+    {
+        "type": "text",
+        "text": "The JU with $\\mathtt{R}^{2}$ shall respond with surveillance information upon receipt of a J7.1 $\\mathbf{\\nabla}_{\\mathbb{A}\\mathbb{C}\\mathbb{T}}~=~1$ ) message on a specific TN.  This JU shall transmit all data ",
+        "page_idx": 373,
+        "index": 2462
+    },
+    {
+        "type": "text",
+        "text": "held in the appropriate J3 message, except that covariance data will not be included on ballistic missile tracks.  A JU with $\\mathsf{R}^{2}$ for a line or area shall transmit the entire line or area upon receipt of a J7.1 ( $\\mathbf{\\nabla}\\cdot\\mathbf{ACT}=\\mathbf{\\nabla}1$ ) for any TN used to define the line or area. ",
+        "page_idx": 374,
+        "index": 2463
+    },
+    {
+        "type": "text",
+        "text": "Upon receipt of a J7.1 ( $\\mathbf{\\nabla}_{\\mathbb{A}\\mathbb{C}\\mathbb{T}}~=~1$ ) message on a specific TN, the JU(s) that have originated surveillance amplification data on the track shall respond with the J6.0 Amplification message containing all available data. ",
+        "page_idx": 374,
+        "index": 2465
+    },
+    {
+        "type": "text",
+        "text": "Upon receipt of a J7.1 ( $\\mathbf{\\nabla}_{\\mathbb{A}\\mathbb{C}\\mathbb{T}}~=~1$ ) message on a specific TN, the JU controlling the TN shall transmit the appropriate J10 Weapons Coordination and Management messages and J13 Platform and System Status messages to include the J10.5 Controlling Unit Report message, the J10.2 Engagement Status message, and the appropriate J13 Platform and System Status messages. ",
+        "page_idx": 374,
+        "index": 2467
+    },
+    {
+        "type": "text",
+        "text": "All $\\mathrm{C}^{2}$ JUs receiving a J7.1 ( $\\mathbf{\\mathrm{{ACT}=1}}$ ) message containing their own TN shall transmit J10.2 Engagement Status messages to report the status of all engagements they are conducting and a J13 Platform and System Status message to report their own status. ",
+        "page_idx": 374,
+        "index": 2469
+    },
+    {
+        "type": "text",
+        "text": "The $\\mathrm{C}^{2}$ JU with $\\mathtt{R}^{2}$ for the Reference TN shall respond with a J3.6 Space Track message upon receipt of a J7.1 message with the Data Update Request Action field set to value 2, Ballistic Missile Update Request, on a specific TN. The JU shall transmit the data held in the appropriate J3.6 word sequence. NonR2 JUs shall not respond to a J7.1 ( $\\begin{array}{r l r}{\\mathbb{A}\\mathrm{CT}}&{{}=}&{2}\\end{array}$ ) Ballistic Missile Update Request.  If an $\\mathsf{R}^{2}$ shift occurs during execution of a DUR response, where the Number/Frequency of Updates field is set to value 2 or 3, the JU assuming $\\mathtt{R}^{2}$ shall not respond to any prior Data Update Request. ",
+        "page_idx": 375,
+        "index": 2474
+    },
+    {
+        "type": "text",
+        "text": "The J7.1 ( $\\mathbf{\\nabla}{\\mathbb{A}}\\mathrm{CT}\\mathbf{\\Omega}=0$ ) Data Update Request by Request Indicator message has the capability to request information by request indicator values.  The message is addressed to a specific Addressee TN(s) or to the collective address of 00177 octal.  The desired request indicator values are selectable by the requesting JU setting the appropriate request indicator value.  Table 4.7-4 lists the various request indicator information categories available and the response messages required by the $\\mathrm{C}^{2}$ JU which originated the data, or by a $C^{2}$ JU which has $\\mathsf{R}^{2}$ for a J3.0 multi-point area or multi-segmented line (defined by more than one J3.0 message) if the Reference Point Data Request Indicator is set to value 1. ",
+        "page_idx": 375,
+        "index": 2476
+    },
+    {
+        "type": "text",
+        "text": "When a JU responds with a J3.0, J3.7 and/or a J6.0 Amplification message, the Response Indicator field in these messages shall be set to value 1.  This field shall provide each JU with the option to process reference point and/or electronic warfare/amplification messages that are in response to a J7.1 (ACT $\\qquad=\\quad0$ ) message.  This reduces the processing required by each JU to clear the displays on previously purged points. ",
+        "page_idx": 375,
+        "index": 2478
+    },
+    {
+        "type": "text",
+        "text": "a.  J7.6 ( $\\tt A C T\\_=0$ ) Filter Implementation Request message. b.  J7.6 ( $\\tt A C T\\_=1$ ) Filter Description Report message. c.  J7.6 ( $\\tt A C T\\_=2$ ) Delete Filter Request/Report message. d.  J7.1 ( $\\begin{array}{r l r}{\\mathbb{A}\\mathrm{CT}}&{{}=}&{0}\\end{array};$ ) Data Update Request by Request Indicator mes ",
+        "page_idx": 398,
+        "index": 2636
+    },
+    {
+        "type": "text",
+        "text": "The J7.6 ( $\\mathbf{\\mathrm{{ACT}=1}}$ ) message is used by a JU to report a filter which the JU has inserted into its TDS or to respond to a J7.1 ( $\\begin{array}{r l r}{\\mathbb{A}\\mathrm{CT}}&{{}=}&{0}\\end{array}$ ) message.  The filter number shall be set to a value between 1 and 14.  When used in response to a J7.1 ( $\\begin{array}{l c l}{{\\bf\\nabla}.\\mathrm{{ACT}}}&{{=}}&{{0}}\\end{array}$ ) message, the filter message(s) shall be addressed to the JU requesting the filter information. ",
+        "page_idx": 399,
+        "index": 2643
+    },
+    {
+        "type": "text",
+        "text": "(1)  Tracks - Tracks reported in J3.2 through J3.5 messages and nonC2 IUs reported in J2.0 and J2.2 through J2.6 messages if Friends are filtered.  The term \"tracks\" used herein includes nonC2 IUs unless otherwise indicated. ",
+        "page_idx": 400,
+        "index": 2648
+    },
+    {
+        "type": "text",
+        "text": "The J7.1 ( $\\mathbf{\\nabla}{\\mathbb{A}}\\mathrm{CT}\\mathbf{\\Omega}=0$ ) message shall be used by a JU requesting information on a filter.  When used, the J7.1 ( $\\mathbf{\\nabla}{\\mathcal{\\mathrm{~\\tiny~ACT~}}}=\\mathbf{\\nabla}0$ ) message shall be addressed to a specific JU; i.e., the collective address of 00177 octal shall not be used. The JU receiving the request shall transmit either all locally inserted filters in response to Filter Number equal to 15 or parameters on a specific filter as specified by the Filter Number field in the J7.1 ( $\\begin{array}{r l r}{\\mathbb{A}\\mathrm{CT}}&{{}=}&{0}\\end{array}$ ) message. The J7.1 ( $\\mathbf{\\chiACT}=0$ ) Filter Number field shall not be set to value 0 when the Filter Data Request Indicator is set to value 1. ",
+        "page_idx": 402,
+        "index": 2665
+    },
+    {
+        "type": "text",
+        "text": "ASW can be conducted as an independent operation or as part of coordinated operations in close support of a task force.  The interface has been designed to provide maximum flexibility in the rules for reporting information related to ASW in order to allow for differences in the ASW mission. ",
+        "page_idx": 412,
+        "index": 2713
+    },
+    {
+        "type": "text",
+        "text": "Commanders must manage resources to effectively employ weapon systems to meet operational objectives in a dynamic tactical environment.  The Mission Management function on Link 16 provides for the exchange of information between $\\mathrm{C}^{2}$ JUs necessary for monitoring tactical situations and requesting and responding to requests for immediate support requirements.  This includes, but is not limited to, those reports and statuses required by the tactical commander to effect mission requests; air, surface (maritime), subsurface (maritime), land (ground) tasking orders; sortie allotments; mission employment and allocation; and in-flight and mission reports.  Normally, the command level that implements this functional area does not directly control weapon systems but is responsible for the timely allocation of resources between subordinate $\\mathrm{C}^{2}$ JUs.  This function shall be supported principally by voice, teletype or character-oriented data links; however, certain requests, reports and other information may be required in real-time or near real-time. ",
+        "page_idx": 422,
+        "index": 2785
+    },
+    {
+        "type": "text",
+        "text": "(1)  Platform and System Status Information. $\\mathrm{C}^{2}$ JU B may or may not have platform and system status information on the Reference TN.  If not, $C^{2}$ JU B may request this information by transmitting the J7.1 Data Update Request message to $\\mathrm{C}^{2}$ JU A prior to transmitting a J10.3 message with the R/C field set to value 3, WILCO. ",
+        "page_idx": 443,
+        "index": 2906
+    },
+    {
+        "type": "text",
+        "text": "(d)  In response to a J7.1 message containing either the ",
+        "page_idx": 446,
+        "index": 2929
+    },
+    {
+        "type": "text",
+        "text": "(e)  In response to a J7.1 message with the Weapon Status Data Request Indicator field set to value 1. ",
+        "page_idx": 446,
+        "index": 2931
+    },
+    {
+        "type": "text",
+        "text": "a.  All JUs shall report their own platform and system status initially when entering the network, upon significant change of status, periodically in accordance with the transmit/receive rules, and for $\\mathrm{C}^{2}$ JUs in response to a J7.1 message.  Platform and System Status messages shall be transmitted on the PPLI and Status Group B NPGs in accordance with paragraph 4.2.3.10.4. ",
+        "page_idx": 448,
+        "index": 2944
+    },
+    {
+        "type": "text",
+        "text": "c.  A $C^{2}$ JU that requires platform and system status on a controlled air track shall request the information from the $C^{2}$ JU controlling the platform, as indicated in the J10.5 message, by transmitting a J7.1 message with the Data Update Request Action field set to value 1, Data Update Request by TN. The controlling $\\mathrm{C}^{2}$ JU shall transmit the appropriate J13 message. ",
+        "page_idx": 448,
+        "index": 2946
+    },
+    {
+        "type": "text",
+        "text": "d.  A $C^{2}$ JU that requires Platform and System Status on a $\\mathrm{C}^{2}$ JU shall request the information from the $C^{2}$ JU by transmitting a J7.1 Data Update Request by TN message containing the $\\mathrm{C}^{2}$ JU's TN as Reference TN. ",
+        "page_idx": 448,
+        "index": 2947
+    },
+    {
+        "type": "text",
+        "text": "Control is the near real-time direction of weapons systems and supporting platforms for the accomplishment of assigned missions.  The Control function provides the exchange of information between $C^{2}$ JUs and weapon systems/ platforms to accomplish Aircraft Control, Surface (Maritime) Control (TBD), Subsurface (Maritime) Control (TBD), Land (Ground) Control (TBD), and EW Control. ",
+        "page_idx": 454,
+        "index": 2988
+    },
+    {
+        "type": "text",
+        "text": "f.  Situational Awareness.  All nonC2 JUs performing the ASO mission are required to monitor the Surveillance NPG for situational awareness.  Also, nonC2 JUs may monitor the NonC2 JU-to-NonC2 JU NPG to aid surface/ground situational awareness.  As a minimum, the J3.0 Reference Point, J3.2 Air Track, J3.3 Surface (Maritime) Track, and J3.5 Land (Ground) Point/Track messages must be received and processed to provide surface and enemy and friendly force information, target descriptions, and locations.  The J3.7 EW Product Information message and the J14.0 Parametric Information message may be received by nonC2 JUs with SEAD mission capability.  NonC2 JUs may also utilize J12.6 Target Sorting message reports specifying nonC2 JU derived target data.  NonC2 JUs conducting ASO shall receive lines and areas for situational awareness and update information primarily from the Surveillance NPG.  NonC2 JUs shall monitor J7.0 Track Management and J10.2 Engagement Status messages for amplification of the surveillance data. ",
+        "page_idx": 472,
+        "index": 3116
+    }
+]
